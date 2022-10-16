@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp
 public class MecanumTeleOp extends LinearOpMode {
@@ -14,6 +15,7 @@ public class MecanumTeleOp extends LinearOpMode {
         DcMotor motorFrontLeft = hardwareMap.dcMotor.get("motor4");
         DcMotor motorBackRight = hardwareMap.dcMotor.get("motor1");
         DcMotor motorFrontRight = hardwareMap.dcMotor.get("motor2");
+        Servo servo = hardwareMap.servo.get("servo 1");
 
 
         // Reverse the right side motors
@@ -42,6 +44,15 @@ public class MecanumTeleOp extends LinearOpMode {
             motorBackLeft.setPower(-backLeftPower);
             motorFrontRight.setPower(frontRightPower);
             motorBackRight.setPower(backRightPower);
+
+            if(gamepad1.left_bumper) {
+                servo.setDirection(Servo.Direction.FORWARD);
+                servo.setPosition(1);
+            }
+            if(gamepad1.right_bumper) {
+                servo.setDirection(Servo.Direction.REVERSE);
+                servo.setPosition(0);
+            }
 
 
         }
