@@ -66,7 +66,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="First Autonomous")
+@Autonomous(name="First Autonomous Strafe Left", group="Robot")
 
 public class FirstAutonomousStrafeLeft extends LinearOpMode {
 
@@ -77,8 +77,7 @@ public class FirstAutonomousStrafeLeft extends LinearOpMode {
     private DcMotor rightFrontDrive = null;
     private DcMotor rightBackDrive = null;
 
-    @Override
-    public void runOpMode() throws InterruptedException {
+    @Override public void runOpMode() throws InterruptedException {
 
         // Initialize the hardware variables. Note that the strings used here must correspond
         // to the names assigned during the robot configuration step on the DS or RC devices.
@@ -110,9 +109,11 @@ public class FirstAutonomousStrafeLeft extends LinearOpMode {
         runtime.reset();
 
         // run until the end of the match (driver presses STOP)
-        Drive(50, 5);
-        StrafeLeft(50, 1);
-        StrafeRight(50, 1);
+        Drive(10, 2);
+        StrafeLeft(10, 1);
+        StrafeRight(10, 2);
+        StrafeLeft(10, 1);
+        Drive(-10, 2);
         StopAll();
     }
 
