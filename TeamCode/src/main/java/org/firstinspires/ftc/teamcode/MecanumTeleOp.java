@@ -51,7 +51,7 @@ public class MecanumTeleOp extends LinearOpMode {
             }
             if(gamepad1.right_bumper) {
                 servo.setDirection(Servo.Direction.REVERSE);
-                servo.setPosition(0);
+                servo.setPosition(1);
             }
 
 
