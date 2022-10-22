@@ -40,7 +40,7 @@ public class RobotVision extends LinearOpMode {
 
 
     private static final String VUFORIA_KEY =
-            " -- YOUR NEW VUFORIA KEY GOES HERE  --- ";
+            "AST+8ff/////AAABmWyHFyzcp0hwtqqoHhxqvRQETPq8CvPEruXd0hKYGsh5NpsuTwM2zGLUj4NO+3XzQpL7foz/QXTgZxh+TkikuyJTc16urR8MQ+/NWWIvKEsRcR8T+b7CXjKFuWYj+vQV4jogqhIJUXlSLaxLfHGIQc4t2ESWY1AdRNMOqaeVvGwX57wxSLVjckWpCOE27uWXYODWCdlCpcYjREntxsf5i+Kx5BBL3KIB0AV2/1u7CzUtQrd3zgAc0R4/92dG1WnOTfhd+r/8dvLT3rccQ7Q2szSuH7YcZYt5tNs0Bia271lTvIuWGeGMJCU44ywrXxROcr5c8gP+JrYT0GSVHw5LgPU5u4rxwpMAoXeR0F+yAhdT";
 
     /**
      * {@link #vuforia} is the variable we will use to store our instance of the Vuforia
@@ -56,7 +56,7 @@ public class RobotVision extends LinearOpMode {
 
     @Override
     public void runOpMode() {
-        web cam  = hardwareMap.get(DcMotor.class, "webcam");
+
 
         initVuforia();
         initTfod();
