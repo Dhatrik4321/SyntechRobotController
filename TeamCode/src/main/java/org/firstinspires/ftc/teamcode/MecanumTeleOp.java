@@ -15,13 +15,14 @@ public class MecanumTeleOp extends LinearOpMode {
         DcMotor motorFrontLeft = hardwareMap.dcMotor.get("motor4");
         DcMotor motorBackRight = hardwareMap.dcMotor.get("motor1");
         DcMotor motorFrontRight = hardwareMap.dcMotor.get("motor2");
+        DcMotor viperSlide = hardwareMap.dcMotor.get("motor5");
         Servo servo = hardwareMap.servo.get("servo 1");
         Servo servo2 = hardwareMap.servo.get("servo 2");
 
 
         // Reverse the right side motors
         // Reverse left motors if you are using NeveRests
-//        motorFrontRight.setDirection(DcMotorSimple.Dire3ction.REVERSE);
+//        motorFrontRight.setDirection(DcMotorSimple   .Dire3ction.REVERSE);
 //        motorBackRight.setDirection(DcMotorSimple.Direction.REVERSE);
 
         waitForStart();
@@ -29,7 +30,7 @@ public class MecanumTeleOp extends LinearOpMode {
         if (isStopRequested()) return;
 
         while (opModeIsActive()) {
-            servo.setDirection(Servo.Direction.REVERSE);
+            servo2.setDirection(Servo.Direction.REVERSE);
             double y = -gamepad1.left_stick_y; // Remember, this is reversed!
             double x = gamepad1.left_stick_x * 1.0; // Counteract imperfect strafing
             double rx = gamepad1.right_stick_x;
@@ -47,15 +48,21 @@ public class MecanumTeleOp extends LinearOpMode {
             motorFrontRight.setPower(frontRightPower);
             motorBackRight.setPower(backRightPower);
 
+
             if(gamepad1.left_bumper) {
-                servo2.setPosition(0.3);
+                servo2.setPosition(0.7);
                 servo.setPosition(0);
 
             }
             if(gamepad1.right_bumper) {
-                servo2.setPosition(0);
+
+                servo2.setPosition(1);
                 servo.setPosition(0.3);
             }
+
+            viperSlide.setPower(-0.8 * gamepad1.left_trigger);
+            viperSlide.setPower(0.8 * gamepad1.right_trigger);
+
 
 
         }
