@@ -18,6 +18,7 @@ public class MecanumTeleOp extends LinearOpMode {
         DcMotor viperSlide = hardwareMap.dcMotor.get("motor5");
         Servo servo = hardwareMap.servo.get("servo 1");
         Servo servo2 = hardwareMap.servo.get("servo 2");
+        Servo servo3 = hardwareMap.servo.get("servo 3");
 
 
         // Reverse the right side motors
@@ -49,12 +50,24 @@ public class MecanumTeleOp extends LinearOpMode {
             motorBackRight.setPower(backRightPower);
 
 
-            if(gamepad1.left_bumper) {
+//            if (gamepad2.dpad_down) {
+//                servo3.setPosition(0);
+//            }
+//            if (gamepad2.dpad_up) {
+//                servo3.setPosition(1);
+//            }
+
+
+
+            if(gamepad2.left_bumper) {
+
                 servo2.setPosition(0.7);
                 servo.setPosition(0);
 
             }
-            if(gamepad1.right_bumper) {
+
+
+            if(gamepad2.right_bumper) {
 
                 servo2.setPosition(1);
                 servo.setPosition(0.3);
