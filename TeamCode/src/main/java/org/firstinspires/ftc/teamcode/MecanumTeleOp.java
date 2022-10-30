@@ -44,10 +44,17 @@ public class MecanumTeleOp extends LinearOpMode {
             double frontRightPower = (y - x - rx) / denominator;
             double backRightPower = (y + x - rx) / denominator;
 
-            motorFrontLeft.setPower(-frontLeftPower);
-            motorBackLeft.setPower(-backLeftPower);
-            motorFrontRight.setPower(frontRightPower);
-            motorBackRight.setPower(backRightPower);
+//            motorFrontLeft.setPower(-frontLeftPower);
+//            motorBackLeft.setPower(-backLeftPower);
+//            motorFrontRight.setPower(frontRightPower);
+//            motorBackRight.setPower(backRightPower);
+            servo3.setPosition(0);
+
+            servo3.setPosition(1);
+
+            servo3.setPosition(0);
+            servo3.setPosition(1);
+
 
 
 //            if (gamepad2.dpad_down) {
@@ -73,7 +80,7 @@ public class MecanumTeleOp extends LinearOpMode {
                 servo.setPosition(0.3);
             }
 
-            viperSlide.setPower(-0.8 * gamepad1.left_trigger);
+            viperSlide.setPower(0.8 * gamepad1.left_trigger);
             viperSlide.setPower(0.8 * gamepad1.right_trigger);
 
 
