@@ -16,6 +16,7 @@ public class MecanumTeleOp extends LinearOpMode {
         DcMotor motorBackRight = hardwareMap.dcMotor.get("motor1");
         DcMotor motorFrontRight = hardwareMap.dcMotor.get("motor2");
         Servo servo = hardwareMap.servo.get("servo 1");
+        Servo servo2 = hardwareMap.servo.get("servo 2");
 
 
         // Reverse the right side motors
@@ -28,6 +29,7 @@ public class MecanumTeleOp extends LinearOpMode {
         if (isStopRequested()) return;
 
         while (opModeIsActive()) {
+            servo.setDirection(Servo.Direction.REVERSE);
             double y = -gamepad1.left_stick_y; // Remember, this is reversed!
             double x = gamepad1.left_stick_x * 1.0; // Counteract imperfect strafing
             double rx = gamepad1.right_stick_x;
@@ -46,12 +48,15 @@ public class MecanumTeleOp extends LinearOpMode {
             motorBackRight.setPower(backRightPower);
 
             if(gamepad1.left_bumper) {
-                servo.setDirection(Servo.Direction.FORWARD);
-                servo.setPosition(1);
+                servo2.setPosition(0.3);
+                servo.setPosition(0);
+
             }
             if(gamepad1.right_bumper) {
                 servo.setDirection(Servo.Direction.REVERSE);
                 servo.setPosition(1);
+                servo2.setPosition(0);
+                servo.setPosition(0.3);
             }
 
 
