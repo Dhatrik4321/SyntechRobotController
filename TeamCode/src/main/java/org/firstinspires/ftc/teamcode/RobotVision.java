@@ -40,7 +40,7 @@ public class RobotVision extends LinearOpMode {
 
 
     private static final String VUFORIA_KEY =
-            "AST+8ff/////AAABmWyHFyzcp0hwtqqoHhxqvRQETPq8CvPEruXd0hKYGsh5NpsuTwM2zGLUj4NO+3XzQpL7foz/QXTgZxh+TkikuyJTc16urR8MQ+/NWWIvKEsRcR8T+b7CXjKFuWYj+vQV4jogqhIJUXlSLaxLfHGIQc4t2ESWY1AdRNMOqaeVvGwX57wxSLVjckWpCOE27uWXYODWCdlCpcYjREntxsf5i+Kx5BBL3KIB0AV2/1u7CzUtQrd3zgAc0R4/92dG1WnOTfhd+r/8dvLT3rccQ7Q2szSuH7YcZYt5tNs0Bia271lTvIuWGeGMJCU44ywrXxROcr5c8gP+JrYT0GSVHw5LgPU5u4rxwpMAoXeR0F+yAhdT";
+            "AfRdm/v/////AAABmRa36nMVjkdAnYfT2LZQ510DdkArmXru8AlIRpqO3UtVZE3Z9ZYKytEimcLfDcA+0z0EXmct/ltDYeFFzpur3n0Vxc8+q0+T8vbFKi9a1evpD1yneH+7J958jn0+PIah5zmhySL7mbje2TyuQU9FAdfyLthRwy3oyBP781kdb8e9u9Vn+4Nltv/q9Wx8PN0a5IVWLV365Vx+F75ox6tgbEC/O7j/DD9BGpJte/DSdKALzBpHEm4pBex3nJnG78dboW6juB0BPjjNPdxn591qLWqSA06PrXI3L7ueMe4giIyqNvx8+IZetEhLnTTP0/JS7vSbsG3o1dpJiUgDf6MzTBugvJg/+6q/vd/J7oh30eg7";
 
     /**
      * {@link #vuforia} is the variable we will use to store our instance of the Vuforia
@@ -122,10 +122,9 @@ public class RobotVision extends LinearOpMode {
      * Initialize the TensorFlow Object Detection engine.
      */
     private void initTfod() {
-        int tfodMonitorViewId = hardwareMap.appContext.getResources().getIdentifier(
-                "tfodMonitorViewId", "id", hardwareMap.appContext.getPackageName());
+        int tfodMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("tfodMonitorViewId", "id", hardwareMap.appContext.getPackageName());
         TFObjectDetector.Parameters tfodParameters = new TFObjectDetector.Parameters(tfodMonitorViewId);
-        tfodParameters.minResultConfidence = 0.75f;
+        tfodParameters.minResultConfidence = 0.55f;
         tfodParameters.isModelTensorFlow2 = true;
         tfodParameters.inputSize = 300;
         tfod = ClassFactory.getInstance().createTFObjectDetector(tfodParameters, vuforia);
