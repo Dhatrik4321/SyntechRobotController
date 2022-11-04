@@ -48,24 +48,24 @@ public class MecanumTeleOp extends LinearOpMode {
 //            motorBackLeft.setPower(-backLeftPower);
 //            motorFrontRight.setPower(frontRightPower);
 //            motorBackRight.setPower(backRightPower);
-            servo3.setPosition(0);
-
-            servo3.setPosition(1);
-
-            servo3.setPosition(0);
-            servo3.setPosition(1);
-
-
-
-//            if (gamepad2.dpad_down) {
-//                servo3.setPosition(0);
-//            }
-//            if (gamepad2.dpad_up) {
-//                servo3.setPosition(1);
-//            }
+//            servo3.setPosition(0);
+//
+//            servo3.setPosition(1);
+//
+//            servo3.setPosition(0);
+//            servo3.setPosition(1);
 
 
 
+
+
+            if(gamepad2.a){
+                viperSlide.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+                viperSlide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                waitForStart();
+                viperSlide.setPower(1);
+                viperSlide.setTargetPosition(50);
+            }
             if(gamepad2.left_bumper) {
 
                 servo2.setPosition(0.7);
@@ -77,14 +77,13 @@ public class MecanumTeleOp extends LinearOpMode {
             if(gamepad2.right_bumper) {
 
                 servo2.setPosition(1);
-                servo.setPosition(0.3);
             }
 
-            viperSlide.setPower(0.8 * gamepad1.left_trigger);
-            viperSlide.setPower(0.8 * gamepad1.right_trigger);
-
-
-
+            viperSlide.setPower(-2* gamepad1.left_trigger);
+            viperSlide.setPower(2 * gamepad1.right_trigger);
         }
+
+
+
     }
 }
